@@ -1,0 +1,15 @@
+body{
+    background-color: rgb(112, 121, 222);
+}
+header{
+    size: 80px;
+    height: 100px;
+    background-color: blue;
+}
+img{
+size: 80px;
+height: 70px;
+margin-top: 13px;
+margin-left: 10px;
+}
+
