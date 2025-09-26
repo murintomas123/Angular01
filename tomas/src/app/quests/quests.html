@@ -1,0 +1,13 @@
+<h2>Questy</h2>
+
+<ul>
+    @for (quest of quests; track quest.id; let i = $index) {
+        <li>
+            <h3>{{ i + 1 }}. {{ quest.title }}</h3>
+            <p>{{ quest.description }}</p>
+            <p><strong>XP:</strong> {{ quest.xp }}</p>
+        </li>
+        } @empty {
+        <li>No quests available right now.</li>
+        }
+</ul>
