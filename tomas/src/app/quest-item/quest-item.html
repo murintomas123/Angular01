@@ -1,0 +1,15 @@
+<div>
+
+    <li>
+        <h3>{{quest().id }}. {{ quest().title }}</h3>
+        <p>{{ quest().description }}</p>
+        <p><strong>XP:</strong> {{ quest().xp }}</p>
+        @if (quest().xp > 100) {
+        <p>100 xp</p>
+        }
+        @else {
+        <p>{{quest().xp}} xp</p>
+        }
+    </li>
+    <div class="delete" (click)="delete.emit(quest().id)">🗑️</div>
+</div>

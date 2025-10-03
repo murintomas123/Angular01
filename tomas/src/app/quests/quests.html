@@ -1,13 +1,23 @@
 <h2>Questy</h2>
 
 <ul>
-    @for (quest of quests; track quest.id; let i = $index) {
-        <li>
-            <h3>{{ i + 1 }}. {{ quest.title }}</h3>
-            <p>{{ quest.description }}</p>
-            <p><strong>XP:</strong> {{ quest.xp }}</p>
-        </li>
-        } @empty {
-        <li>No quests available right now.</li>
-        }
+    @for (quest of quests; track $index) {
+    <app-quest-item [questData]="quest" (delete)="deleteQuest($event)"></app-quest-item>
+    }
 </ul>
+<div id="new-quest" (click)="showQuestForm()">New</div>
+@if (questFormVisible) {
+<div class="quest-form">
+    <h2>New Quest - {{ quests.length + 1 }}</h2>
+    <form>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required />
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+
+        <button type="submit">Add Quest</button>
+        <button type="button" (click)="showQuestForm()">Cancel</button>
+    </form>
+</div>
+}
